@@ -1,0 +1,28 @@
+{
+	"name": "2021-dev-matching",
+	"version": "1.0.0",
+	"description": "Programmers 2021 Dev-Matching: Web Frontend",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack serve --mode=production",
+		"start:dev": "webpack serve --mode=development",
+		"build": "webpack --mode=production",
+		"build:dev": "webpack --mode=production"
+	},
+	"author": "anxiubin",
+	"license": "MIT",
+	"homepage": "https://github.com/anxiubin/2021-Dev-Matching-Web-Frontend",
+	"devDependencies": {
+		"@babel/cli": "^7.7.0",
+		"@babel/core": "^7.7.2",
+		"@babel/plugin-proposal-class-properties": "^7.7.0",
+		"@babel/preset-env": "^7.7.1",
+		"babel-loader": "^8.0.6",
+		"css-loader": "^5.2.4",
+		"html-webpack-plugin": "^5.3.1",
+		"style-loader": "^3.2.1",
+		"webpack": "^5.36.0",
+		"webpack-cli": "^4.6.0",
+		"webpack-dev-server": "^3.11.2"
+	}
+}
