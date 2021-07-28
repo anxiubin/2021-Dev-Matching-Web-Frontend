@@ -25,7 +25,7 @@ export default function ImageView({ $app, initialState, onClick }) {
 	}
 
 	this.$target.addEventListener("click", (e) => {
-		if (e.target.className !== "image") {
+		if (!e.target.classList.contains("image")) {
 			this.onClick()
 		}
 	})
