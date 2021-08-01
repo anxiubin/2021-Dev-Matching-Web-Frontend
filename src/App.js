@@ -8,6 +8,7 @@ import { api } from "./api/fetchData.js"
 const cache = {}
 
 export default function App($app) {
+	// 상태값
 	this.state = {
 		isRoot: true,
 		nodes: [],
@@ -16,6 +17,19 @@ export default function App($app) {
 		isLoading: false,
 	}
 
+	// 상태값 변경 함수
+	this.setState = (nextState) => {
+		this.state = nextState
+		breadcrumb.setState(this.state.depth)
+		nodes.setState({
+			isRoot: this.state.isRoot,
+			nodes: this.state.nodes,
+		})
+		imageView.setState(this.state.selectedFilePath)
+		loading.setState(this.state.isLoading)
+	}
+
+	// 생성자 함수 실행
 	const breadcrumb = new Breadcrumb({
 		$app,
 		initialState: this.state.depth,
@@ -133,17 +147,7 @@ export default function App($app) {
 		initialState: this.state.isLoading,
 	})
 
-	this.setState = (nextState) => {
-		this.state = nextState
-		breadcrumb.setState(this.state.depth)
-		nodes.setState({
-			isRoot: this.state.isRoot,
-			nodes: this.state.nodes,
-		})
-		imageView.setState(this.state.selectedFilePath)
-		loading.setState(this.state.isLoading)
-	}
-
+	// 최초 앱 실행 시 초기화
 	const init = async () => {
 		try {
 			this.setState({
